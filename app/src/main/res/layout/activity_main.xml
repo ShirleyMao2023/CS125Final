@@ -7,17 +7,34 @@
     tools:context=".MainActivity"
     android:background="@color/black">
 
+    <TextView
+        android:id="@+id/catFact"
+        android:layout_width="380dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:fontFamily="@font/griffy"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="391dp"
         android:layout_height="419dp"
         android:background="@drawable/intro"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintTop_toTopOf="@id/catFact"
+        app:layout_constraintVertical_bias="0.224" />
 
     <TextView
         android:id="@+id/MyCatPrince"
@@ -34,10 +51,10 @@
         app:fontFamily="@font/leckerli_one"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"
+        app:layout_constraintTop_toTopOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.647" />
 
     <Button
         android:id="@+id/begin"

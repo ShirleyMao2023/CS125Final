@@ -2,14 +2,26 @@ package com.example.cs125final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
+    private String fact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +29,34 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
 
-        Button begin = findViewById(R.id.begin);
+
+
+        setContentView(R.layout.activity_main);
+        TextView catFact = findViewById(R.id.catFact);
+        catFact.bringToFront();
+
+        RequestQueue requestQueue;
+        requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                "https://catfact.ninja/facts?limit=1", null, response -> {
+            try {
+                fact = setFact(response);
+                System.out.println("HELLO1 " + fact);
+                catFact.setText(fact);
+                Log.d("myapp", "The response is " + response.getString("data"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+                }, error -> Log.d("myapp", "Something went wrong"));
+
+        requestQueue.add(jsonObjectRequest);
+        System.out.println("HELLO " + fact);
+
+
 
 
 
@@ -29,6 +66,25 @@ public class MainActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
     public void beginApplication(View view) {
+
         startActivity(new Intent(this, partOne.class));
+    }
+    /**
+     * Populates the games lists UI with data retrieved from the server.
+     * @param result parsed JSON from the server
+     */
+    private String setFact(final JSONObject result) {
+        try {
+            JSONArray gameArray = result.getJSONArray("data");
+            JSONObject object = gameArray.getJSONObject(0);
+            fact = object.getString("fact");
+            return fact;
+
+
+        } catch (JSONException e) {
+            Log.e("MYAPP", "unexpected JSON exception", e);
+        }
+
+        return null;
     }
 }
