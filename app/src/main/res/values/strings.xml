@@ -4,4 +4,6 @@
     <string name="begin">Begin</string>
     <string name="exit">Exit</string>
     <string name="my_cat_prince">My Cat Prince</string>
+    <string name="textview">TextView</string>
+    <string name="next">Next</string>
 </resources>
