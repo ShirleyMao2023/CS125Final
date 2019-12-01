@@ -12,9 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".partThree"></activity>
-        <activity android:name=".partOne" />
-        <activity android:name=".partTwo" />
+        <activity
+            android:name=".End"
+            android:noHistory="true">
+        </activity>
+        <activity
+            android:name=".partThree"
+            android:noHistory="true">
+        </activity>
+        <activity
+            android:name=".partOne"
+            android:noHistory="true">
+        </activity>
+        <activity
+            android:name=".partTwo"
+            android:noHistory="true">
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

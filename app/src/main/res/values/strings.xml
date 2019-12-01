@@ -14,5 +14,10 @@
     <string name="right">Right</string>
     <string name="dagger">Dagger</string>
     <string name="sword">Sword</string>
-    <string name="no_weapon">No Weapon</string>
+    <string name="no_weapon">No Weapon - try to talk to them.</string>
+    <string name="yes">Yes - join the fight.</string>
+    <string name="no1">No - attack your companion.</string>
+    <string name="no2">No - stand on the sidelines and watch the fight.</string>
+    <string name="replay">Replay</string>
+    <string name="end_game">End Game</string>
 </resources>

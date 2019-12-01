@@ -16,11 +16,17 @@ public class Variables extends Application {
         System.out.println("name " + name);
     }
     public int getScore() {
+        System.out.println("Score " + score);
         return score;
     }
-    public void setScore(int setScore) {
-        this.score = setScore;
+    public void addScore(int setScore) {
+        this.score = score + setScore;
         System.out.println("Score " + score);
     }
+    public void resetScore() {
+        this.score = 0;
+        System.out.println("setScore " + score);
+    }
+
 
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".End">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <LinearLayout
+            android:layout_marginTop="-30dp"
+            android:id="@+id/endingPic"
+            android:layout_width="524dp"
+            android:layout_height="472dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/edit_round"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/endingText"
+                android:layout_width="378dp"
+                android:layout_height="175dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textSize="24sp"
+                app:fontFamily="@font/aladin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/replay"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginRight="200dp"
+                android:padding="5dp"
+                android:background="#9DE0BE"
+                android:onClick="restartApp"
+                android:text="@string/replay"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/end"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:layout_marginStart="-170dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginRight="100dp"
+                android:background="#F56B6B"
+                android:onClick="closeApp"
+                android:text="@string/end_game"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

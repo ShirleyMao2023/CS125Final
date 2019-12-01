@@ -20,11 +20,12 @@ import android.widget.TextView;
 public class partOne extends AppCompatActivity {
     private int count = 0;
     final private String[] story = {"Hail, fair traveler! May I be given the honor of knowing your name?",
-    "A truly beautiful name. I am journeying to the prince’s castle, and it appears you are traveling to the city as well.",
-    "I had not thought I would encounter another on this path tonight. These woods have grown dangerous as of late.",
-    "Come, my comrade, let us travel together!",
-    "------- 3 hours later -------",
-    "Oh dear, it seems I have lost my map, and we have reached a fork in the road.", "Which path shall we take?"};
+        "A truly beautiful name. I am journeying to the prince’s castle, and it appears you are traveling to the city as well.",
+        "I had not thought I would encounter another on this path tonight. These woods have grown dangerous as of late.",
+        "Come, my comrade, let us travel together!",
+        "-------  3 hours later  -------",
+        "Oh dear, it seems I have lost my map, and we have reached a fork in the road.",
+        "Which path shall we take?"};
     private TextView name;
     private Button button;
     private String user;
@@ -68,7 +69,10 @@ public class partOne extends AppCompatActivity {
             } else if (count == story.length) {
                 storyStuff.setVisibility(View.GONE);
                 choices();
+                count++;
 
+            } else if (count > story.length) {
+                startActivity(new Intent(this, partTwo.class));
             }
             //perform your action here
         });
@@ -138,7 +142,7 @@ public class partOne extends AppCompatActivity {
         choiceA.setOnClickListener(v -> {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Not very decisive, are you? Then we shall take the right path.");
-            ((Variables) this.getApplication()).setScore(0);
+            ((Variables) this.getApplication()).addScore(0);
 
             //perform your action here
         });
@@ -146,7 +150,7 @@ public class partOne extends AppCompatActivity {
         choiceB.setOnClickListener(v -> {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Hmm, that is an interesting choice, yet methinks we ought to take the right path instead.");
-            ((Variables) this.getApplication()).setScore(1);
+            ((Variables) this.getApplication()).addScore(1);
             //perform your action here
         });
 
@@ -155,10 +159,16 @@ public class partOne extends AppCompatActivity {
             Spannable wordToSpan = new SpannableString("Well said! You have shown great wisdom, " + user + ". Onto the right path we go!");
             wordToSpan.setSpan(pink, 39, (40 + user.length()), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             storyText.setText(wordToSpan);
-            ((Variables) this.getApplication()).setScore(2);
+            ((Variables) this.getApplication()).addScore(2);
 
             //perform your action here
         });
         storyStuff.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        moveTaskToBack(true);
     }
 }

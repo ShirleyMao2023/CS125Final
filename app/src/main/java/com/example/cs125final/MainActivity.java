@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ((Variables) this.getApplication()).resetScore();
 
 
 
@@ -85,5 +86,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        moveTaskToBack(true);
     }
 }
