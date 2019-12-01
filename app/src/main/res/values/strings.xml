@@ -7,4 +7,9 @@
     <string name="textview">TextView</string>
     <string name="next">Next</string>
     <string name="hi">hi</string>
+    <string name="click_to_continue">*** Click to Continue ***</string>
+    <string name="name">Name</string>
+    <string name="i_don_t_know">I don’t know.</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
 </resources>
