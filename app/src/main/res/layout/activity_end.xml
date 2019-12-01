@@ -54,17 +54,22 @@
 
             <Button
                 android:id="@+id/replay"
+                android:gravity="center"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:drawableLeft="@drawable/restart"
+                android:drawablePadding="-20dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginEnd="200dp"
                 android:layout_marginRight="200dp"
-                android:padding="5dp"
+                android:paddingLeft="20dp"
                 android:background="#9DE0BE"
                 android:onClick="restartApp"
                 android:text="@string/replay"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:fontFamily="@font/aladin"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
 
             <Button
                 android:id="@+id/end"
@@ -78,7 +83,9 @@
                 android:background="#F56B6B"
                 android:onClick="closeApp"
                 android:text="@string/end_game"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:fontFamily="@font/aladin"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
         </LinearLayout>
 
     </LinearLayout>
