@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 "https://catfact.ninja/facts?limit=1", null, response -> {
             try {
                 fact = setFact(response);
-                System.out.println("HELLO1 " + fact);
                 catFact.setText(fact);
                 Log.d("myapp", "The response is " + response.getString("data"));
             } catch (JSONException e) {
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 }, error -> Log.d("myapp", "Something went wrong"));
 
         requestQueue.add(jsonObjectRequest);
-        System.out.println("HELLO " + fact);
+
 
 
 

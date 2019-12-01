@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
@@ -120,6 +119,7 @@ public class partOne extends AppCompatActivity {
 
     public void userName(View view) {
         user = name.getText().toString();
+        ((Variables) this.getApplication()).setUserName(user);
 
         name.setVisibility(View.GONE);
         button.setVisibility(View.GONE);
@@ -138,6 +138,7 @@ public class partOne extends AppCompatActivity {
         choiceA.setOnClickListener(v -> {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Not very decisive, are you? Then we shall take the right path.");
+            ((Variables) this.getApplication()).setScore(0);
 
             //perform your action here
         });
@@ -145,6 +146,7 @@ public class partOne extends AppCompatActivity {
         choiceB.setOnClickListener(v -> {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Hmm, that is an interesting choice, yet methinks we ought to take the right path instead.");
+            ((Variables) this.getApplication()).setScore(1);
             //perform your action here
         });
 
@@ -153,6 +155,7 @@ public class partOne extends AppCompatActivity {
             Spannable wordToSpan = new SpannableString("Well said! You have shown great wisdom, " + user + ". Onto the right path we go!");
             wordToSpan.setSpan(pink, 39, (40 + user.length()), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             storyText.setText(wordToSpan);
+            ((Variables) this.getApplication()).setScore(2);
 
             //perform your action here
         });
