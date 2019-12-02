@@ -32,17 +32,14 @@ public class End extends AppCompatActivity {
             endText.setText("Those bandits have been thoroughly defeated. You have proven to be a loyal and valiant subject. " +
                     "For rescuing me, your reward will be to marry me, Prince Meow!");
             endPic.setBackgroundResource(R.drawable.prince_meow);
-
         } else if (score > 2) {
             endText.setText("“We have barely escaped from those bandits. " +
                     "You are a good subject of mine, " + name
                     + ", though not a great one. Take this pendant as a token of appreciation from me, Prince Meow. Farewell!");
             endPic.setBackgroundResource(R.drawable.cat);
-
         } else {
             endText.setText("It is as I, Prince Meow, suspected - you are a traitor! For your betrayal against your kingdom, your punishment is death!");
             endPic.setBackgroundResource(R.drawable.sword);
-
         }
     }
 
@@ -51,6 +48,7 @@ public class End extends AppCompatActivity {
         finish();
         moveTaskToBack(true);
     }
+
     public void restartApp(View view) {
         Controller.getInstance().stopService();
         startActivity(new Intent(this, MainActivity.class));

@@ -28,7 +28,6 @@ public class partThree extends AppCompatActivity {
     private TextView no2;
     private LinearLayout choiceGroup3;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,32 +36,27 @@ public class partThree extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_part_three);
 
-
         storyGroup3 = findViewById(R.id.storyGroup3);
         storyText3 = findViewById(R.id.storyText3);
 
         storyText3.setText(story3[0]);
-
 
         choiceGroup3 = findViewById(R.id.choiceGroup3);
         yes = findViewById(R.id.yes);
         no1 = findViewById(R.id.no1);
         no2 = findViewById(R.id.no2);
 
-
         storyGroup3.setOnClickListener(v -> {
             count++;
             if (count < story3.length) {
                 storyText3.setText(story3[count]);
-
             } else if (count == story3.length) {
                 System.out.println("Going into choices");
                 storyGroup3.setVisibility(View.GONE);
                 choices();
-
             }
-            //perform your action here
         });
+
         storyText3.setOnClickListener(v -> {
             count++;
             if (count < story3.length) {
@@ -71,45 +65,28 @@ public class partThree extends AppCompatActivity {
                 System.out.println("Going into choices");
                 storyGroup3.setVisibility(View.GONE);
                 choices();
-
             }
-
-            //perform your action here
         });
-
-
     }
-
-
-
 
     public void choices() {
         System.out.println("Inside");
         choiceGroup3.setVisibility(View.VISIBLE);
 
         no1.setOnClickListener(v -> {
-
             ((Variables) this.getApplication()).addScore(0);
             startActivity(new Intent(this, End.class));
-            //perform your action here
         });
 
         no2.setOnClickListener(v -> {
-
             ((Variables) this.getApplication()).addScore(1);
             startActivity(new Intent(this, End.class));
-            //perform your action here
         });
 
         yes.setOnClickListener(v -> {
-
             ((Variables) this.getApplication()).addScore(2);
             startActivity(new Intent(this, End.class));
-
-            //perform your action here
         });
-
-
     }
 
     @Override

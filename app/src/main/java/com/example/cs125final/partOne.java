@@ -55,7 +55,6 @@ public class partOne extends AppCompatActivity {
         choiceB = findViewById(R.id.choice2);
         choiceC = findViewById(R.id.choice3);
 
-
         storyStuff.setOnClickListener(v -> {
             if (count == 0) {
                 name.setVisibility(View.VISIBLE);
@@ -70,12 +69,12 @@ public class partOne extends AppCompatActivity {
                 storyStuff.setVisibility(View.GONE);
                 choices();
                 count++;
-
             } else if (count > story.length) {
                 startActivity(new Intent(this, partTwo.class));
             }
             //perform your action here
         });
+
         storyText.setOnClickListener(v -> {
             if (count == 0) {
                 name.setVisibility(View.VISIBLE);
@@ -94,17 +93,13 @@ public class partOne extends AppCompatActivity {
             } else if (count > story.length) {
                 startActivity(new Intent(this, partTwo.class));
             }
-
-            //perform your action here
         });
-
-
     }
+
     public void nameInput() {
         name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -115,10 +110,8 @@ public class partOne extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
-
     }
 
     public void userName(View view) {
@@ -133,9 +126,9 @@ public class partOne extends AppCompatActivity {
         wordToSpan.setSpan(pink, 4, (4 + user.length()), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         storyText.setText(wordToSpan);
 
-
         count++;
     }
+
     public void choices() {
         choiceGroup.setVisibility(View.VISIBLE);
 
@@ -143,15 +136,12 @@ public class partOne extends AppCompatActivity {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Not very decisive, are you? Then we shall take the right path.");
             ((Variables) this.getApplication()).addScore(0);
-
-            //perform your action here
         });
 
         choiceB.setOnClickListener(v -> {
             choiceGroup.setVisibility(View.GONE);
             storyText.setText("Hmm, that is an interesting choice, yet methinks we ought to take the right path instead.");
             ((Variables) this.getApplication()).addScore(1);
-            //perform your action here
         });
 
         choiceC.setOnClickListener(v -> {
@@ -160,8 +150,6 @@ public class partOne extends AppCompatActivity {
             wordToSpan.setSpan(pink, 39, (40 + user.length()), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             storyText.setText(wordToSpan);
             ((Variables) this.getApplication()).addScore(2);
-
-            //perform your action here
         });
         storyStuff.setVisibility(View.VISIBLE);
     }
