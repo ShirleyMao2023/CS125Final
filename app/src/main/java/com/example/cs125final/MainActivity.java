@@ -1,10 +1,7 @@
 package com.example.cs125final;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +11,6 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
@@ -36,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent service = new Intent(this, MusicService.class);
         startService(service);
+
         TextView catFact = findViewById(R.id.catFact);
         catFact.bringToFront();
 
@@ -51,26 +48,21 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-
                 }, error -> Log.d("myapp", "Something went wrong"));
 
         requestQueue.add(jsonObjectRequest);
-
-
-
-
-
-
     }
+
     public void closeApplication(View view) {
+        Controller.getInstance().stopService();
         finish();
         moveTaskToBack(true);
     }
-    public void beginApplication(View view) {
 
+    public void beginApplication(View view) {
         startActivity(new Intent(this, partOne.class));
     }
+
     /**
      * Populates the games lists UI with data retrieved from the server.
      * @param result parsed JSON from the server
@@ -81,12 +73,9 @@ public class MainActivity extends AppCompatActivity {
             JSONObject object = gameArray.getJSONObject(0);
             fact = object.getString("fact");
             return fact;
-
-
         } catch (JSONException e) {
             Log.e("MYAPP", "unexpected JSON exception", e);
         }
-
         return null;
     }
 

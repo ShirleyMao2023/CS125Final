@@ -47,16 +47,18 @@ public class End extends AppCompatActivity {
     }
 
     public void closeApp(View view) {
+        Controller.getInstance().stopService();
         finish();
         moveTaskToBack(true);
     }
     public void restartApp(View view) {
-
+        Controller.getInstance().stopService();
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onBackPressed() {
+        Controller.getInstance().stopService();
         finish();
         moveTaskToBack(true);
     }
