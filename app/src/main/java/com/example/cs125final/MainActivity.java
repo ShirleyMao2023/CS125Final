@@ -32,14 +32,10 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ((Variables) this.getApplication()).resetScore();
 
-
-
         setContentView(R.layout.activity_main);
 
-        MediaPlayer player = MediaPlayer.create(this, R.raw.czardasdavidgarrettvmonti);
-        player.setLooping(true);
-        player.start();
-
+        Intent service = new Intent(this, MusicService.class);
+        startService(service);
         TextView catFact = findViewById(R.id.catFact);
         catFact.bringToFront();
 
