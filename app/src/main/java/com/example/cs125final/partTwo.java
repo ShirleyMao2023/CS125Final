@@ -103,7 +103,10 @@ public class partTwo extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
-        moveTaskToBack(true);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+        int pid = android.os.Process.myPid();
+        android.os.Process.killProcess(pid);
     }
 }

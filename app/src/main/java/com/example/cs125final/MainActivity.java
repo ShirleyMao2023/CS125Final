@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent service = new Intent(this, MusicService.class);
+        ((Variables) this.getApplication()).setMusicService(service);
+
         startService(service);
 
         TextView catFact = findViewById(R.id.catFact);
@@ -54,12 +56,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void closeApplication(View view) {
-        Controller.getInstance().stopService();
+        stopService(((Variables) this.getApplication()).getMusicService());
         finish();
         moveTaskToBack(true);
+
     }
 
     public void beginApplication(View view) {
+
         startActivity(new Intent(this, partOne.class));
     }
 
@@ -81,7 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
-        moveTaskToBack(true);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+        int pid = android.os.Process.myPid();
+        android.os.Process.killProcess(pid);
     }
 }

@@ -69,7 +69,8 @@
                 android:text="@string/replay"
                 android:textSize="18sp"
                 android:fontFamily="@font/aladin"
-                style="@style/Widget.AppCompat.Button.Borderless"/>
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:drawableStart="@drawable/restart" />
 
             <Button
                 android:id="@+id/end"

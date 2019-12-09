@@ -95,5 +95,4 @@
         android:onClick="closeApplication"/>
 
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

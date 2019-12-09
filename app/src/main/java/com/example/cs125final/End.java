@@ -44,19 +44,23 @@ public class End extends AppCompatActivity {
     }
 
     public void closeApp(View view) {
-        Controller.getInstance().stopService();
+
+        stopService(((Variables) this.getApplication()).getMusicService());
         finish();
         moveTaskToBack(true);
+
+
     }
 
     public void restartApp(View view) {
-        Controller.getInstance().stopService();
+
+        stopService(((Variables) this.getApplication()).getMusicService());
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onBackPressed() {
-        Controller.getInstance().stopService();
+        stopService(((Variables) this.getApplication()).getMusicService());
         finish();
         moveTaskToBack(true);
     }

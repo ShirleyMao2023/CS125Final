@@ -1,31 +1,35 @@
 package com.example.cs125final;
 
 import android.app.Application;
+import android.content.Intent;
 
 public class Variables extends Application {
     private String name;
     private int score;
+    private Intent musicService;
     public String getUserName() {
         return name;
     }
 
     public void setUserName(String setName) {
         this.name = setName;
-        System.out.println("name " + name);
+    }
+    public void setMusicService(Intent setMusicService) {
+        this.musicService = setMusicService;
+    }
+    public Intent getMusicService() {
+        return musicService;
     }
 
     public int getScore() {
-        System.out.println("Score " + score);
         return score;
     }
 
     public void addScore(int setScore) {
         this.score = score + setScore;
-        System.out.println("Score " + score);
     }
 
     public void resetScore() {
         this.score = 0;
-        System.out.println("setScore " + score);
     }
 }
