@@ -103,6 +103,7 @@ public class partTwo extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        stopService(((Variables) this.getApplication()).getMusicService());
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
